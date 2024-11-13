@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Services
+{% endblock title %}
+{% block head %}
+<center><h1>Services</h1></center>
+<p class="text-white">The Service You Need To Modifiy Your Car Is Here</p>
+
+{% endblock head %}
+ {% block body %}
+ <section id="services">
+  <div class="services-container" data-aos="fade-up" data-aos-delay="150">
+ 
+ <div class="row row-cols- row-cols-md-">
+  {% for post in posts %}
+  <div class="col mb-1">
+    <div class="card ">
+      <img src="{{post.img.url}}" class="card-img-top" alt="...">
+      <div class="card-body text-white bg-black">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  {% endfor %}
+</div>
+ 
+ {% endblock body %}
+
+

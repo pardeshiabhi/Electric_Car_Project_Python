@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+profile
+{% endblock title %}
+{% block head %}
+<h1>profile Details</h1>
+
+<div class="container">
+
+
+    {% for post in posts %}
+    <ul class="list-group">
+        
+        <li class="list-group-item bg-dark text-white">Name : {{post.FullName}}</li>
+
+        <li class="list-group-item bg-dark text-white">email : {{post.email}}</li>
+
+        <li class="list-group-item bg-dark text-white">Gender : {{post.Gender}}</li>
+
+        <li class="list-group-item bg-dark text-white">Phonenumber : {{post.Phonenumber}}</li>
+
+        <li class="list-group-item bg-dark text-white">DOB : {{post.DOB}}</li>
+
+        <li class="list-group-item bg-dark text-white">CarType : {{post.Selectcar}}</li>
+
+        <li class="list-group-item bg-dark text-white">Selectcarbrand : {{post.selectfeatures}}</li>
+
+        <li class="list-group-item bg-dark text-white">refrence : {{post.refrence}}</li>
+
+        <li class="list-group-item bg-dark text-white">payment status : {{post.paymentstatus}}</li>
+
+        <li class="list-group-item bg-dark text-white"> Paid price : {{post.price}}</li>
+
+        <li class="list-group-item bg-dark text-white">Duedate : {{post.Duedate}}</li>
+
+        <li class="list-group-item bg-dark text-white">Buying Date : {{post.timestamp}}</li>
+      
+      </ul>
+      {% endfor %}
+    <div  class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong></strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+    {% endfor %}
+
+
+   
+
+    </div>
+
+    <div class="col-md-4"></div>
+
+    </div>
+
+
+</div>
+      
+{% endblock head %}

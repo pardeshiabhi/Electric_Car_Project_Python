@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+Renting
+{% endblock title %}
+{% block head %}
+<h1>Rent a car</h1>
+
+<div class="container mt-2">
+
+    <div  class="row"> 
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong></strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+    {% endfor %}
+
+
+    <form action="/Rental" method="post"> {% csrf_token %}
+        {% csrf_token %}
+
+    <div class="form-group">
+        <input type="text" class="form-control mb-2"  name="FullName" placeholder="Enter Your Fullname" required>
+    </div>
+
+    <div class="form-group">
+        <input type="email" class="form-control mb-2" value={{user.email}} name="Email" placeholder="Enter Your Email" readonly required>
+    
+    <div class="form-group">
+        <select class="form-control mb-2" id="gender" name="Gender" required>
+            <option selected>select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="number" class="form-control mb-2"  name="Phonenumber" placeholder="Enter Your Number" required>
+    </div>
+
+    <div class="form-group">
+       <input type="date" class="form-control mb-2" name="DOB" placeholder="Date Of Birth" required>
+    </div>
+
+    <div class="form-group">
+    
+        <select class="form-control mb-2" id="Car" name="Car" required>
+            <option selected>Select Car</option>
+             {% for car in Cartitle %}
+            <option value="{{car.Cartitle}}">{{car.Cartitle}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+    
+        <select class="form-control mb-2 " id="Feature" name="Feature" required>
+            <option selected>select Features</option>
+             {% for car in Carbrand %}
+            <option value="{{car.Carbrand}} - {{car.price}}">{{car.Carbrand}} {{car.price}} Rs</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control mb-2" name="Refrence" placeholder="Refered By" required>
+     </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control mb-2" name="Address" placeholder="Address" required>
+     </div>
+    <br>
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-success" type="submit">Rent Now</button>
+    </div>
+
+    </form>
+    <br> <a href="/login">Already User?</a>
+
+    </div>
+
+    <div class="col-md-4"></div>
+
+    </div>
+
+
+</div>
+      
+{% endblock head %}
